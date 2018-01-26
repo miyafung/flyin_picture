@@ -1,0 +1,21 @@
+﻿<blockquote class="layui-elem-quote layui-text">
+	关键词修改
+</blockquote>
+
+
+<form class="layui-form" role="form" action="{:url('keywords/updhanddle')}" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="keywords_id" value="{$keywords_find.keywords_id}">
+
+	<div class="layui-form-item layui-col-md6">
+		<label class="layui-form-label">关键词名称</label>
+		<div class="layui-input-block">
+			<input id="keywords_name" name="keywords_name" placeholder="请输入关键词"  type="text" value="{$keywords_find.keywords_name}"  class="layui-input" required>
+		</div>
+	</div>
+
+	<div class="layui-form-item layui-col-md12">
+		<button type="submit" class="layui-btn">修改属性</button>
+		<button type="reset" class="layui-btn">重置</button>
+	</div>
+
+</form>

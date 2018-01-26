@@ -1,0 +1,40 @@
+﻿<blockquote class="layui-elem-quote layui-text">
+	关键词列表
+</blockquote>
+
+<a class="green" href="{:url('keywords/add')}">
+	<i style="color: #ac4941" class="fa fa-plus-square" aria-hidden="true"></i>添加关键词
+</a>
+
+<form action="{:url('cate/sort')}" method="post">
+	<table class="layui-table">
+	<thead>
+		<th>ID</th>
+		<th>关键字名称</th>
+		<th>操作</th>
+	</thead>
+
+<tbody>
+	{volist name="keywords_select" id="vo"}
+		<tr class="odd">
+			<td class=" ">
+				<a href="#">{$vo.keywords_id}</a>
+			</td>
+			<td class=" ">{$vo.keywords_name}</td>
+			<td class=" ">
+				<div class="visible-md visible-lg hidden-sm hidden-xs action-buttons">
+					<a class="green" href="{:url('keywords/upd',array('keywords_id'=>$vo.keywords_id))}">
+						<i style="color: #60ac6d" class="fa fa-pencil"></i>
+					</a>
+
+					<a class="red" href="javascript:if(confirm('确认删除？')) location='{:url('keywords/del',array('keywords_id'=>$vo.keywords_id))}'">
+						<i style="color: #ac3100" class="fa fa-trash" aria-hidden="true"></i>
+					</a>
+				</div>
+			</td>
+		</tr>
+		{/volist}
+	</tbody>
+</table>
+</form>
+{$keywords_select->render()}

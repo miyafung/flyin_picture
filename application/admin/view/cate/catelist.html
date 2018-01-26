@@ -1,0 +1,61 @@
+﻿<blockquote class="layui-elem-quote layui-text">
+	商品分类列表
+</blockquote>
+
+
+	<a class="green" href="{:url('cate/add')}">
+		<i style="color: #ac4941" class="fa fa-plus-square" aria-hidden="true"></i>添加分类
+	</a>
+
+<form action="{:url('cate/sort')}" method="post" class="layui-table">
+	<table class="layui-table">
+	<thead>
+		<tr><th>
+				<!-- <label>
+					<input type="checkbox">
+					<span class="lbl"></span>
+				</label> -->
+			</th>
+			<th>ID</th>
+			<th>分类名称</th>
+			<th>排序</th>
+			<th>操作</th>
+
+			</tr>
+	</thead>
+
+<tbody>
+	{volist name="cate_list" id="vo"}
+		<tr >
+			<td>
+				<label>
+					<input type="checkbox">
+					<span></span>
+				</label>
+			</td>
+
+			<td>
+				<a href="#">{$vo.cate_id}</a>
+			</td>
+			<td class=" ">{$vo.str}{$vo.cate_name}</td>
+			<td class=" "><input type="text" name="{$vo.cate_id}" value="{$vo.cate_sort}"></td>
+			<td class=" ">
+				<div>
+					<a class="green" href="{:url('cate/upd',array('cate_id'=>$vo.cate_id))}">
+						<i style="color: #60ac6d" class="fa fa-pencil"></i>
+					</a>
+					<a class="red" href="javascript:if(confirm('确认删除？')) location='{:url('cate/del',array('cate_id'=>$vo.cate_id))}'">
+						<i style="color: #ac3100" class="fa fa-trash" aria-hidden="true"></i>
+					</a>
+				</div>
+			</td>
+		</tr>
+		{/volist}
+	</tbody>
+</table>{$show}
+<div>
+	<div>
+		<input type="submit" name="" value="分类排序"  class="layui-btn">
+	</div>
+</div>
+</form>

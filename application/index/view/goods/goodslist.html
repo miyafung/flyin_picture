@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>商品列表</title>
+
+		<link href="__INDEX__/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
+		<link href="__INDEX__/assets/css/admin.css" rel="stylesheet" type="text/css" />
+
+		<link href="__INDEX__/basic/css/demo.css" rel="stylesheet" type="text/css" />
+
+		<link href="__INDEX__/css/seastyle.css" rel="stylesheet" type="text/css" />
+
+		<script type="text/javascript" src="__INDEX__/basic/js/jquery-1.7.min.js"></script>
+		<script type="text/javascript" src="../js/script.js"></script>
+	</head>
+	<style type="text/css">
+		#page1 li{
+			display: inline;
+		}
+	</style>
+
+	<body>
+
+		<!--顶部导航条 -->
+		{include file='public/top'}
+           <div class="search">
+			<div class="search-list">
+			<div class="nav-table">
+					   <div class="long-title"><span class="all-goods">全部分类</span></div>
+			</div>
+
+					<div class="am-g am-g-fixed">
+						<div class="am-u-sm-12 am-u-md-12">
+							<div class="search-content">
+								<div class="clear"></div>
+
+								<ul class="am-avg-sm-2 am-avg-md-3 am-avg-lg-4 boxes">
+									{volist name="goods_info" id="vo"}
+									<li>
+										<a href="{:url('goods/introduction',array('goods_id'=>$vo.goods_id))}">
+											<div class="i-pic limit">
+												<img style="width: 218px;height:163px; " src="{$vo.goods_thumb}" />
+												<p class="title fl">
+												{$vo.goods_name}
+												{volist name="vo.keywords" id="vo1"}
+												{$vo1.keywords_name}
+												{/volist}
+												</p>
+												<!--<p class="price fl">-->
+													<!--{if condition="$vo.goods_after_price"}-->
+
+															<!--<em>¥</em><b class="sys_item_price">{$vo.goods_after_price}</b>-->
+															<!--&nbsp;-->
+															<!--<em>¥</em><del>{$vo.goods_price}</del>-->
+
+														<!--{else/}-->
+
+															<!--<em>¥</em><b class="sys_item_price">{$vo.goods_price}</b>-->
+
+													<!--{/if}-->
+												<!--</p>-->
+												<!--<p class="number fl">-->
+													<!--销量<span>{$vo.goods_sales}</span>-->
+												<!--</p>-->
+											</div>
+										</a>
+									</li>
+									{/volist}
+
+								</ul>
+							</div>
+
+							<div class="clear"></div>
+							<!--分页 -->
+							<div class="am-pagination am-pagination-right" id="page1">
+								{$show}
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+
+		<script>
+			window.jQuery || document.write('<script src="basic/js/jquery-1.9.min.js"><\/script>');
+		</script>
+		<script type="text/javascript" src="__ADMIN__/basic/js/quick_links.js"></script>
+
+<div class="theme-popover-mask"></div>
+
+	</body>
+
+</html>

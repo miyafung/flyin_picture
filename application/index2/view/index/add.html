@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>飛宇集團年会盛典在线报名</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- layui的使用-->
+    <link rel="stylesheet" href="__LAYUI__layui/css/layui.css" media="all" />
+    <script src="__LAYUI__layui/layui.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+
+</head>
+<style>
+
+    body{
+        background-image: url("__IMG__/bg.jpg");
+        background-size: cover
+    }
+
+    .container{
+        margin-top:250px;
+        width: 72%;
+        margin-left:auto;margin-right:auto;
+    }
+    .center{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .colorsize{
+        margin-top: 1rem;
+        color:#b2b3b6;
+        font-size: 0.7rem;
+    }
+</style>
+
+<body>
+
+<div class="container">
+
+<form class="layui-form layui-form-pane" action="">
+    <div class="layui-form-item">
+        <label class="layui-form-label">姓名</label>
+        <div class="layui-input-block">
+            <input type="text" name="wxapply_name" required  lay-verify="required" placeholder="请输入姓名" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">手机</label>
+        <div class="layui-input-block">
+            <input type="text" name="wxapply_phone" required  lay-verify="required" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">公司</label>
+        <div class="layui-input-block">
+            <input type="text" name="wxapply_company" required  lay-verify="required" placeholder="请输入公司名字" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+
+    <div class="center">
+        <button class="layui-btn" lay-submit="" lay-filter="add">立即报名</button>
+    </div>
+
+    <div class="center colorsize">
+        <p>截止时间：2017年12月29号 24:00</p>
+        <p>举办时间：2017年12月30日 16:00-20:00</p>
+        <p>举办地点：东莞凤岗龙凤山庄嘉辉酒店千人宴会厅</p>
+    </div>
+          <!--  <button type="reset" class="layui-btn layui-btn-primary">重置</button>-->
+
+</form>
+</div>
+<script>
+    layui.use('form', function(){
+        var form = layui.form
+            ,jq = layui.jquery;
+        form.on('submit(add)', function(data){
+            loading = layer.load(2, {
+                shade: [0.2,'#000']
+            });
+            var param = data.field;
+            jq.post('{:url("Index/add")}',param,function(data){
+                if(data.code == 200){
+                    layer.close(loading);
+                    layer.msg(data.msg, {icon: 1, time: 1000}, function(){
+                        location.href = '{:url("Index/add")}';
+                    });
+                }else{
+                    layer.close(loading);
+                    layer.msg(data.msg, {icon: 2, anim: 6, time: 1000});
+                }
+            });
+            return false;
+        });
+
+    })
+</script>
+
+<!--
+
+<div class="container">
+    <div class="row">
+        <form class="form-horizontal" role="form"  action="{:url('index/add')}" method="post"  >
+        <div class="form-group">
+            <label for="wxapply_name" class="col-sm-2 control-label">名字</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="wxapply_name" name="wxapply_name"
+                       placeholder="请输入名字">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="wxapply_phone" class="col-sm-2 control-label">电话</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="wxapply_phone" name="wxapply_phone"
+                       placeholder="请输入电话">
+            </div>
+        </div>
+
+            <div class="form-group">
+                <label for="wxapply_company" class="col-sm-2 control-label">公司</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="wxapply_company" name="wxapply_company"
+                           placeholder="请输入公司名字">
+                </div>
+            </div>
+
+        <div class="form-group center">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">立刻报名</button>
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+-->
+
+
+<!--
+<form  action="" method="post" enctype="multipart/form-data">
+<div class="container">
+    <div>
+       姓名:<input type="text" id="wxapply_name" name="wxapply_name">
+    </div>
+
+    <div>
+       电话:<input type="text" id="wxapply_phone" name="wxapply_phone">
+    </div>
+
+    <div>
+        公司
+        <input type="text" id="wxapply_company" id="wxapply_company">
+    </div>
+
+    <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" class="btn btn-default">立刻报名</button>
+    </div>
+</div>
+</form>
+-->
+
+</body>
+</html>
+
+
+<script>
+    wx.onMenuShareTimeline({
+        title: '飞宇集团年会盛典在线报名', // 分享标题
+        link: 'http://miyawx.yuzhiwei.com.cn/public/index.php/index/index/add.html', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+        imgUrl: '__IMG__/log.png', // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
+</script>

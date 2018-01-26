@@ -1,0 +1,36 @@
+﻿
+<blockquote class="layui-elem-quote layui-text">
+	管理员添加
+</blockquote>
+
+<form class="form-horizontal" role="form" action="{:url('admin/addhanddle')}" method="post">
+<div class="layui-form-item">
+	<label class="layui-form-label">管理员名称</label>
+	<div class="layui-input-inline">
+		<input type="text"id="admin_name" name="admin_name" placeholder="请输入管理员名称" lay-verify="required" autocomplete="off" class="layui-input" required>
+	</div>
+</div>
+
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">管理员密码</label>
+		<div class="layui-input-inline">
+			<input type="password" id="admin_password" name="admin_password" placeholder="请输入管理员密码" lay-verify="required" autocomplete="off" class="layui-input" required>
+		</div>
+	</div>
+<div class="layui-form-item">
+	<label class="layui-form-label">管理员密码</label>
+	<div class="layui-input-inline">
+		<input type="password" id="admin_password1" name="admin_password1" placeholder="请再一遍输入管理员密码" autocomplete="off" class="layui-input" required>
+	</div>
+	<div class="layui-form-mid layui-word-aux">请再一遍输入管理员密码</div>
+</div>
+	<button type="submit" class="layui-btn" lay-submit="" lay-filter="demo1">添加管理员</button>
+	<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+</form>
+
+
+
+
+
+

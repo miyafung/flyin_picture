@@ -1,0 +1,35 @@
+﻿<blockquote class="layui-elem-quote layui-text">
+	属性选择列表 <br>
+	下拉选择黑色为可选
+</blockquote>
+
+<form class="layui-form layui-form-pane" action="{:url('property/addhanddle')}" method="post" enctype="multipart/form-data">
+	<div class="layui-form-item layui-col-md6">
+		<label class="layui-form-label">属性名称</label>
+		<div class="layui-input-block">
+			<input type="text" id="property_name" name="property_name" placeholder="请输入商品名称" class="layui-input" required>
+		</div>
+	</div>
+
+	<div class="layui-form-item layui-col-md6">
+		<label class="layui-form-label">属性类别</label>
+		<div class="layui-input-block" >
+			<select name="property_pid" lay-filter="aihao" >
+				{volist name="cate_list1" id="vo1"}
+				<option value="{$vo1.cate_id}" disabled="">【{$vo1.cate_name}】</option>
+				{volist name="vo1.children" id="vo2"}
+				<option value="{$vo2.cate_id}"  disabled="">&nbsp;&nbsp;&nbsp;&nbsp;{$vo2.cate_name}</option>
+				{volist name="vo2.children" id="vo3"}
+				<option value="{$vo3.cate_id}" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$vo3.cate_name}</option>
+				{/volist}
+				{/volist}
+				{/volist}
+			</select>
+		</div>
+	</div>
+
+	<div class="layui-form-item layui-col-md6">
+		<button type="submit" class="layui-btn">添加关键字</button>
+		<button type="reset" class="layui-btn">重置</button>
+	</div>
+</form>

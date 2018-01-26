@@ -1,0 +1,33 @@
+﻿<blockquote class="layui-elem-quote layui-text">
+	管理员密码修改
+</blockquote>
+	<form class="form-horizontal" role="form" action="{:url('admin/updhanddle')}" method="post">
+		<input id="admin_id" type="hidden" name="admin_id" value="{$admin_find.admin_id}">
+		<div class="layui-form-item">
+			<label class="layui-form-label">管理员名称</label>
+			<div class="layui-input-inline">
+				<input id="admin_name" name="{$admin_find.admin_id}" placeholder="请输入管理员名称"  value="{$admin_find.admin_name}"  class="layui-input">
+			</div>
+		</div>
+		<div class="layui-form-item">
+			<label class="layui-form-label">管理员密码</label>
+
+			<div  class="layui-input-inline">
+				<input id="admin_password" name="admin_password" placeholder="请输入管理员密码"   type="text" class="layui-input">
+			</div>
+		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label"> 再输入一遍</label>
+			<div class="layui-input-inline">
+				<input id="admin_password1" name="admin_password1" placeholder="请再一遍输入管理员密码"  type="text" class="layui-input">
+			</div>
+		</div>
+
+		<div class="clearfix form-actions">
+			<div class="col-md-offset-3 col-md-9">
+				<button type="submit" class="layui-btn" lay-submit="" lay-filter="">更新管理员</button>
+				<button type="reset" class="layui-btn layui-btn-primary">重置</button>
+			</div>
+		</div>
+	</form>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>飞宇图库</title>
+    <link href="__LAYUIADMIN__/css/layui.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="__FONT__/css/font-awesome.min.css"><!--字体图标-->
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <div class="layui-header">
+        <!-- navbar -->
+        {include file="public/navbar"}
+        <!-- /navbar -->
+    </div>
+
+    <div class="layui-side layui-bg-black">
+        <div class="layui-side-scroll">
+            <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+            <!-- slidebar -->
+            {include file="public/slidebar"}
+            <!-- /slidebar -->
+        </div>
+    </div>
+
+    <div class="layui-body">
+        <!-- 内容主体区域 -->
+        <div style="padding: 10px;">
+            {__CONTENT__}
+        </div>
+    </div>
+
+    <div class="layui-footer">
+        <!-- 底部固定区域 -->
+        © 2018 - 飞宇集团图库
+    </div>
+</div>
+<script src="__LAYUIADMIN__/layui.all.js"></script>
+<script>
+    //JavaScript代码区域
+    layui.use('element', function(){
+        var element = layui.element;
+    });
+</script>
+</body>
+</html>

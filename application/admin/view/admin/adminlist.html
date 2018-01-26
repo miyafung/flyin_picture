@@ -1,0 +1,39 @@
+﻿<blockquote class="layui-elem-quote layui-text">
+	管理员列表
+</blockquote>
+
+<form action="{:url('cate/sort')}" method="post">
+	<table class="layui-table">
+
+		<thead>
+		<tr>
+			<th>序号</th>
+			<th>管理员名称</th>
+			<th>密码</th>
+			<th>编辑</th>
+		</tr>
+		</thead>
+		<tbody >
+			{volist name="admin_select" id="vo"}
+				<tr class="odd">
+					<td class=" ">
+						<a href="#">{$vo.admin_id}</a>
+					</td>
+					<td class=" ">{$vo.admin_name}</td>
+					<td class=" ">{$vo.admin_password}</td>
+					<td class=" ">
+						<div>
+							<a class="green" href="{:url('admin/upd',array('admin_id'=>$vo.admin_id))}">
+								<i style="color: #60ac6d" class="fa fa-pencil"></i>
+							</a>
+							<a class="red" href="javascript:if(confirm('确认删除？')) location='{:url('admin/del',array('admin_id'=>$vo.admin_id))}'">
+								<i style="color: #ac3100" class="fa fa-trash" aria-hidden="true"></i>
+							</a>
+						</div>
+					</td>
+				</tr>
+				{/volist}
+			</tbody>
+</table>
+</form>
+
